@@ -12,7 +12,14 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "aggregation_manager_d1",
+			"database_name": "aggregation-manager-d1",
+			"database_id": "252f9048-f46f-4bc3-95b2-051724f697ea"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
