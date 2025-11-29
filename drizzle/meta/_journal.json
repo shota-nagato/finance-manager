@@ -8,6 +8,13 @@
       "when": 1764386237802,
       "tag": "0000_20251129121716_create_branches",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1764401213874,
+      "tag": "0001_20251129162653_change_aggregation_interval_type_on_branches",
+      "breakpoints": true
     }
   ]
 }
