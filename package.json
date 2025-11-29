@@ -9,9 +9,14 @@
 		"dev": "react-router dev",
 		"postinstall": "npm run cf-typegen",
 		"preview": "pnpm run build && vite preview",
-		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
+		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
+		"db:generate": "npx drizzle-kit generate",
+		"db:migrate:local": "npx wrangler d1 migrations apply aggregation_manager_d1 --local",
+		"db:migrate:remote": "npx wrangler d1 migrations apply aggregation_manager_d1 --remote"
 	},
 	"dependencies": {
+		"dotenv": "^17.2.3",
+		"drizzle-orm": "^0.44.7",
 		"isbot": "^5.1.31",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
@@ -24,6 +29,7 @@
 		"@types/node": "^22",
 		"@types/react": "^19.1.13",
 		"@types/react-dom": "^19.1.9",
+		"drizzle-kit": "^0.31.7",
 		"tailwindcss": "^4.1.13",
 		"typescript": "^5.9.2",
 		"vite": "^7.1.7",

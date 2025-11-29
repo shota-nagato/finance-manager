@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1764386237802,
+      "tag": "0000_20251129121716_create_branches",
+      "breakpoints": true
+    }
+  ]
+}
