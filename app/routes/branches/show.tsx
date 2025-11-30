@@ -125,7 +125,7 @@ export default function BrancheDetail() {
                 <tbody className="divide-y divide-gray-200">
                   {salesCategories.map(bc => (
                     <tr key={bc.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-3">
+                      <td className="px-6 py-3 whitespace-nowrap">
                         <span className="text-sm font-medium text-gray-900">{bc.category.name}</span>
                       </td>
                       {sortedPeriods.map(period => {
@@ -174,7 +174,7 @@ export default function BrancheDetail() {
                 <tbody className="divide-y divide-gray-200">
                   {expenseCategories.map(bc => (
                     <tr key={bc.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-3">
+                      <td className="px-6 py-3 whitespace-nowrap">
                         <span className="text-sm font-medium text-gray-900">{bc.category.name}</span>
                       </td>
                       {sortedPeriods.map(period => {
