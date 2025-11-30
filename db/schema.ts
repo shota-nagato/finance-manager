@@ -1,4 +1,4 @@
-import { sql, relations } from "drizzle-orm";
+import { sql, relations, type InferSelectModel } from "drizzle-orm";
 import { int, sqliteTable, text, check, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const timestamps = {
@@ -81,4 +81,18 @@ export const aggregationsRelations = relations(aggregations, ({ one }) => ({
     fields: [aggregations.branchCategoryId],
     references: [branchCategories.id],
   }),
-}))
+}));
+
+export type Branch = InferSelectModel<typeof branches>;
+export type Category = InferSelectModel<typeof categories>;
+export type BranchCategory = InferSelectModel<typeof branchCategories>;
+export type Aggregation = InferSelectModel<typeof aggregations>;
+
+export type BranchCategoryWithRelations = BranchCategory & {
+  branch: Branch;
+  category: Category;
+};
+
+export type AggregationWithRelations = Aggregation & {
+  branchCategory: BranchCategoryWithRelations;
+};
