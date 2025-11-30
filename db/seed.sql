@@ -60,3 +60,15 @@ INSERT INTO branch_categories (id, branch_id, category_id, created_at, updated_a
   (27, 3, 11, unixepoch(), unixepoch()),
   (28, 3, 12, unixepoch(), unixepoch()),
   (29, 3, 13, unixepoch(), unixepoch());
+
+INSERT INTO aggregations (id, branch_category_id, year, month, amount, created_at, updated_at) VALUES
+  (1, 1, 2025, 3, 100000, unixepoch(), unixepoch()),
+  (2, 1, 2025, 6, 200000, unixepoch(), unixepoch()),
+  (3, 1, 2025, 9, 300000, unixepoch(), unixepoch()),
+  (4, 1, 2025, 12, 400000, unixepoch(), unixepoch()),
+  (5, 2, 2025, 3, 50000, unixepoch(), unixepoch()),
+  (6, 2, 2025, 6, 60000, unixepoch(), unixepoch()),
+  (7, 2, 2025, 9, 70000, unixepoch(), unixepoch()),
+  (8, 2, 2025, 12, 80000, unixepoch(), unixepoch()),
+  (9, 3, 2025, 3, 90000, unixepoch(), unixepoch()),
+  (10, 3, 2025, 6, 100000, unixepoch(), unixepoch());

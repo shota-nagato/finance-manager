@@ -50,7 +50,7 @@ export const aggregations = sqliteTable("aggregations", {
 }, (table) => [
   uniqueIndex("aggregation_unique").on(table.branchCategoryId, table.year, table.month),
   check("amount", sql`${table.amount} >= 0`),
-  check("year", sql`${table.year} >= 2025`),
+  check("year", sql`${table.year} >= 2020`),
   // アプリケーション側で、半期の支店の場合は6, 12のみ選択可能に制御する必要がある
   check("month", sql`${table.month} IN (3, 6, 9, 12)`),
 ])
