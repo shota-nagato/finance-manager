@@ -35,7 +35,7 @@ export default function Header() {
               }`
             }
           >
-            ブランチ
+            店舗一覧
           </NavLink>
         </nav>
       </div>

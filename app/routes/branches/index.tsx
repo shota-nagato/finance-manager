@@ -50,7 +50,7 @@ export default function Branches({ loaderData }: Route.ComponentProps) {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">集計間隔</th>
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">売上項目数</th>
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">経費項目数</th>
-              <th className="px-6 py-3"></th>
+              <th className="px-3 py-3"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -61,7 +61,12 @@ export default function Branches({ loaderData }: Route.ComponentProps) {
               return (
                 <tr key={branch.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
-                    <span className="text-sm font-medium text-gray-900">{branch.name}</span>
+                    <NavLink
+                        to={`/branches/${branch.id}`}
+                        className="text-sm text-blue-600 hover:text-blue-800 underline"
+                    >
+                      {branch.name}
+                    </NavLink>
                   </td>
                   <td className="px-6 py-4">
                     <span className="text-sm text-gray-700">
@@ -79,12 +84,12 @@ export default function Branches({ loaderData }: Route.ComponentProps) {
                   <td className="px-6 py-4 text-center">
                     <span className="text-sm text-gray-700">{expensesCount}</span>
                   </td>
-                  <td className="px-6 py-4 text-right">
+                  <td className="px-3 py-4 text-center">
                     <NavLink
-                      to={`/branches/${branch.id}`}
+                      to={`/branches/${branch.id}/edit`}
                       className="text-sm text-blue-600 hover:text-blue-800"
                     >
-                      詳細
+                      編集
                     </NavLink>
                   </td>
                 </tr>
