@@ -2,6 +2,7 @@ import type { Route } from "./+types/route";
 import { drizzle } from "drizzle-orm/d1";
 import * as schema from "../../../db/schema";
 import { calculateSummary } from "../../utils/aggregation-calculator";
+import { HALF_PERIODS } from "../../constants/summary";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -70,7 +71,7 @@ export default function Dashboard({ loaderData }: Route.ComponentProps) {
                   <span className="text-sm text-gray-700">{summary.branchName}</span>
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <span className="text-sm text-gray-700">{summary.halfPeriod}</span>
+                  <span className="text-sm text-gray-700">{HALF_PERIODS[summary.halfPeriod]}</span>
                 </td>
                 <td className="px-6 py-4 text-right">
                   <span className="text-sm text-gray-900 font-medium">{formatNumber(summary.sales)}</span>

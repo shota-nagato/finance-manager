@@ -1,7 +1,7 @@
 import type { AggregationWithRelations } from "../../db/schema";
 import type { AggregationType, AggregationInterval } from "../constants/branch";
+import type { HalfPeriod } from "../constants/summary";
 
-type HalfPeriod = "firstHalf" | "secondHalf";
 type CategoryType = "sales" | "expenses";
 
 type AggregationRecord = AggregationWithRelations;
