@@ -12,7 +12,9 @@
 		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
 		"db:generate": "npx drizzle-kit generate",
 		"db:migrate:local": "npx wrangler d1 migrations apply aggregation_manager_d1 --local",
-		"db:migrate:remote": "npx wrangler d1 migrations apply aggregation_manager_d1 --remote"
+		"db:migrate:remote": "npx wrangler d1 migrations apply aggregation_manager_d1 --remote",
+		"db:seed:local": "npx wrangler d1 execute aggregation_manager_d1 --local --file=db/seed.sql",
+		"db:seed:remote": "npx wrangler d1 execute aggregation_manager_d1 --remote --file=db/seed.sql"
 	},
 	"dependencies": {
 		"dotenv": "^17.2.3",
