@@ -69,6 +69,27 @@ export default function BrancheDetail() {
     return agg ? formatAmount(agg.amount) : "-";
   };
 
+  const getAmountRaw = (
+    bc: typeof branch.branchCategories[0],
+    year: number,
+    month: number
+  ): number => {
+    const agg = bc.aggregations.find(a => a.year === year && a.month === month);
+    return agg ? agg.amount : 0;
+  };
+
+  const getSalesTotal = (year: number, month: number): number => {
+    return salesCategories.reduce((sum, bc) => sum + getAmountRaw(bc, year, month), 0);
+  };
+
+  const getExpensesTotal = (year: number, month: number): number => {
+    return expenseCategories.reduce((sum, bc) => sum + getAmountRaw(bc, year, month), 0);
+  };
+
+  const getProfit = (year: number, month: number): number => {
+    return getSalesTotal(year, month) - getExpensesTotal(year, month);
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-4">
@@ -141,6 +162,23 @@ export default function BrancheDetail() {
                     </tr>
                   ))}
                 </tbody>
+                <tfoot className="bg-gray-50 border-t-2 border-gray-300">
+                  <tr>
+                    <td className="px-6 py-3 whitespace-nowrap">
+                      <span className="text-sm font-bold text-gray-900">合計</span>
+                    </td>
+                    {sortedPeriods.map(period => {
+                      const [year, month] = period.split("-");
+                      return (
+                        <td key={period} className="px-6 py-3 text-right">
+                          <span className="text-sm font-bold text-gray-900">
+                            {formatAmount(getSalesTotal(Number(year), Number(month)))}
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                </tfoot>
               </table>
             </div>
           ) : (
@@ -190,10 +228,75 @@ export default function BrancheDetail() {
                     </tr>
                   ))}
                 </tbody>
+                <tfoot className="bg-gray-50 border-t-2 border-gray-300">
+                  <tr>
+                    <td className="px-6 py-3 whitespace-nowrap">
+                      <span className="text-sm font-bold text-gray-900">合計</span>
+                    </td>
+                    {sortedPeriods.map(period => {
+                      const [year, month] = period.split("-");
+                      return (
+                        <td key={period} className="px-6 py-3 text-right">
+                          <span className="text-sm font-bold text-gray-900">
+                            {formatAmount(getExpensesTotal(Number(year), Number(month)))}
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                </tfoot>
               </table>
             </div>
           ) : (
             <p className="px-6 py-3 text-sm text-gray-500">項目がありません</p>
+          )}
+        </div>
+
+        {/* 利益 */}
+        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-200 bg-green-50">
+            <h2 className="text-sm font-medium text-gray-900">利益（売上 − 経費）</h2>
+          </div>
+          {sortedPeriods.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-200">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      項目
+                    </th>
+                    {sortedPeriods.map(period => {
+                      const [year, month] = period.split("-");
+                      return (
+                        <th key={period} className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          {year}年{month}月
+                        </th>
+                      );
+                    })}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-green-50">
+                    <td className="px-6 py-3 whitespace-nowrap">
+                      <span className="text-sm font-bold text-gray-900">利益</span>
+                    </td>
+                    {sortedPeriods.map(period => {
+                      const [year, month] = period.split("-");
+                      const profit = getProfit(Number(year), Number(month));
+                      return (
+                        <td key={period} className="px-6 py-3 text-right">
+                          <span className={`text-sm font-bold ${profit >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                            {formatAmount(profit)}
+                          </span>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="px-6 py-3 text-sm text-gray-500">データがありません</p>
           )}
         </div>
       </div>
