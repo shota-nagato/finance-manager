@@ -81,13 +81,21 @@ export default function BrancheDetail() {
       </div>
 
       {/* ページヘッダー */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-          {branch.name}
-        </h1>
-        <p className="mt-2 text-sm text-gray-600">
-          {AGGREGATION_TYPE[branch.aggregationType as AggregationType]} / {AGGREGATION_INTERVAL[branch.aggregationInterval as AggregationInterval]}
-        </p>
+      <div className="mb-8 flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            {branch.name}
+          </h1>
+          <p className="mt-2 text-sm text-gray-600">
+            {AGGREGATION_TYPE[branch.aggregationType as AggregationType]} / {AGGREGATION_INTERVAL[branch.aggregationInterval as AggregationInterval]}
+          </p>
+        </div>
+        <NavLink
+          to={`/branches/${branch.id}/edit`}
+          className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700"
+        >
+          編集
+        </NavLink>
       </div>
 
       <div className="space-y-8">
