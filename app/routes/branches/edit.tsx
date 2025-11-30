@@ -146,7 +146,6 @@ export default function BranchEdit() {
     );
     setEditingCategory(null);
     setAmountInput("");
-    setSelectedMonth(null);
   };
 
   const getAggregation = (branchCategoryId: number, year: number, month: number) => {
