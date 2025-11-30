@@ -5,7 +5,7 @@ DELETE FROM branches;
 
 INSERT INTO branches (id, name, aggregation_type, aggregation_interval, created_at, updated_at) VALUES
   (1, '東京店舗', 'cumulative', 'quarterly', unixepoch(), unixepoch()),
-  (2, '大阪店舗', 'periodic', 'half-yearly', unixepoch(), unixepoch()),
+  (2, '大阪店舗', 'periodic', 'quarterly', unixepoch(), unixepoch()),
   (3, '名古屋店舗', 'cumulative', 'half-yearly', unixepoch(), unixepoch());
 
 INSERT INTO categories (id, name, category_type, created_at, updated_at) VALUES
