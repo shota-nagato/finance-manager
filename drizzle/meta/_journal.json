@@ -15,6 +15,34 @@
       "when": 1764401213874,
       "tag": "0001_20251129162653_change_aggregation_interval_type_on_branches",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1764420721283,
+      "tag": "0002_20251129215200_create_categories",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1764422226884,
+      "tag": "0003_20251129221706_create_branch_categories",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1764422494700,
+      "tag": "0004_20251129222134_add_timestamps",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1764466950487,
+      "tag": "0005_20251130104229_create_aggregations",
+      "breakpoints": true
     }
   ]
 }
