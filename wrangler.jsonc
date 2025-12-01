@@ -17,7 +17,7 @@
 		{
 			"binding": "aggregation_manager_d1",
 			"database_name": "aggregation-manager-d1",
-			"database_id": "252f9048-f46f-4bc3-95b2-051724f697ea",
+			"database_id": "your_database_id",
 			"migrations_dir": "drizzle"
 		}
 	]
